@@ -1,0 +1,46 @@
+﻿@page
+@model Web.Pages.Products.CardSearchModel
+
+@{
+    ViewData["Title"] = "Card Search";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    <h4>Enter your details to search our available products</h4>
+    <hr />
+
+    <form method="post">
+        <div class="form-row">
+            <label asp-for="Customer.FirstName" class="control-label"></label>
+            <input asp-for="Customer.FirstName" />
+            <span asp-validation-for="Customer.FirstName" class="text-danger"></span>
+        </div>
+        <div class="form-row">
+            <label asp-for="Customer.LastName" class="control-label"></label>
+            <input asp-for="Customer.LastName" />
+            <span asp-validation-for="Customer.LastName" class="text-danger"></span>
+        </div>
+        <div class="form-row">
+            <label asp-for="Customer.DateOfBirth" class="control-label"></label>
+            <input asp-for="Customer.DateOfBirth" />
+            <span asp-validation-for="Customer.DateOfBirth" class="text-danger"></span>
+        </div>
+        <div class="form-row">
+            <label asp-for="Customer.AnnualIncome" class="control-label"></label>
+            <input asp-for="Customer.AnnualIncome" />
+            <span asp-validation-for="Customer.AnnualIncome" class="text-danger"></span>
+        </div>
+
+        @Html.ValidationMessage(Constants.VALIDATION_ERROR_KEY, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-primary">
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

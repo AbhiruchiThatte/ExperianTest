@@ -1,0 +1,33 @@
+﻿@page
+
+@model Web.Pages.Products.CardResultsModel
+
+@{
+    ViewData["Title"] = "Card Results";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Your Results!</h1>
+
+    <h4>@(string.Format("Hi {0}, here are your available products", this.Model.Results.CustomerFirstName))</h4>
+    <hr />
+</div>
+
+<div class="container-fluid">
+    <div class="row vertical-align">
+        <div class="col-lg-8">
+            <img src="@Url.Content(Model.Results.SearchResults.First().ImageUrl)" class="img-fluid" />
+        </div>
+        <div class="col-lg-4 align-content-center">
+            <h4 class="text-center">
+                @(string.Format("The {0}", this.Model.Results.SearchResults.First().Name))
+            </h4>
+            <h5 class="text-center">
+                @(string.Format("APR: {0}%", this.Model.Results.SearchResults.First().Apr))
+            </h5>
+            <h5 class="text-center">
+                @(this.Model.Results.SearchResults.First().PromotionalMessage)
+            </h5>
+        </div>
+    </div>
+</div>
